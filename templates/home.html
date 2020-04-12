@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %} Poll Application {% endblock %}
+{% block body %}
+<div class="jumbotron text-center" style="height: 690px; background-color:#4b5e5e;">
+  <h1 class="display-4 mt-5">Poll Application</h1>
+  <p class="lead mt-5">You can help us by voting.</p>
+  <p class="mt-2">You can vote here.</p>
+  <p class="lead mt-5">
+    <a class="btn btn-primary btn-lg" href="{% url 'accounts:login' %}" role="button">Sign in</a>
+    <a class="btn btn-primary btn-lg" href="{% url 'poll:all_polls' %}" role="button">All Available Poll</a>
+  </p>
+</div>
+{% endblock %}

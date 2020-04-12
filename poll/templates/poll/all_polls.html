@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %} All Polls {% endblock %}
+{% block body %}
+<div class="container">
+    <div class="card text-center bg-grey mt-3">
+        <h5 class="card-title">Available Polls</h5>
+    </div>
+</div>
+
+{% for poll in polls %}
+<div class="container mt-2 text-center">
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text">{{ poll.question }}</p>
+            <a href="{% url 'poll:vote' poll.id %}" class="btn btn-outline-primary">Vote</a>
+            <a href="{% url 'poll:result' poll.id %}" class="btn btn-outline-success">Result</a>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

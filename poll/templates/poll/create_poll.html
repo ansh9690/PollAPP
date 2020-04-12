@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %} Add New Poll {% endblock %}
+{% block body %}
+
+<div class="container text-center">
+    <div class="card text-center bg-grey mt-4">
+        <h5 class="card-title">Create New Polls</h5>
+    </div>
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+          {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    {% endfor %}
+    <form method="post" action="{% url 'poll:create_poll' %}">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="question">Create Question for Poll</label>
+        <textarea class="form-control" name="question" id="question" rows="3"></textarea>
+      </div>
+      <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+              <label for="option">Option-1</label>
+                <input type="text" class="form-control" name="option_one" id="option" placeholder="Enter Option One">
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+              <label for="option_">Option-2</label>
+                <input type="text" class="form-control" name="option_two" id="option_" placeholder="Enter Option two">
+            </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-outline-primary">Submit</button>
+    </form>
+  </div>
+
+{% endblock %}
